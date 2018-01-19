@@ -19,9 +19,9 @@ public partial class Ej_2 : System.Web.UI.Page
         int day = cmbDay.SelectedIndex, persons = 0; //Se guarda el indice del combo del día y se declara la variable para guardar el número de personas
         int.TryParse(txtNumPersons.Text, out persons);
 
-        if (persons == 0)
+        if (persons == 0 || persons  < 0)
         {
-            contentResult.InnerHtml = "<h2>Por favor ingresar un número de personas</h2>";
+            contentResult.InnerHtml = "<h2>Por favor ingresar un número de personas válido</h2>";
         }
         else
         {
