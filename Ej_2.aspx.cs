@@ -31,27 +31,29 @@ public partial class Ej_2 : System.Web.UI.Page
                     contentResult.InnerHtml = "Por favor elegir un día";
                     break;
                 case 3: //Miercoles
+                    //Se establecen precios
                     price2D = 3.50;
                     price3D = 5;
-
-                    contentResult.InnerHtml = "Total a cancelar: $" + ((rdbFormat.SelectedIndex == 0) ? Math.Round(price2D, 2) : Math.Round(price3D, 2));
+                    //Respuesta y condicional para ver en que formato es la película (2D / 3D) 
+                    contentResult.InnerHtml = "Total a cancelar: $" + ((rdbFormat.SelectedIndex == 0) ? Math.Round(price2D * persons, 2) : Math.Round(price3D * persons, 2));
                     break;
-                case 1:
+                case 1://Los demás días - Lunes, Martes, Juves, Viernes, Sábado y Domingo
                 case 2:
                 case 4:
                 case 5:
-                case 6://Los demás días
+                case 6:
                     if (rdbTurn.SelectedIndex == 1) //Se establecen los precios según el turno (AM ó PM)
-                    {
+                    {//Turno PM
                         price2D = 3.75;
                         price3D = 7;
                     }
                     else
-                    {
+                    {//Turno AM
                         price2D = 3.50;
                         price3D = 6;
                     }
 
+                    //Se guarda el total a cancelar dependiendo el formato de la película (2D / 3D)
                     double total = ((rdbFormat.SelectedIndex == 0) ? Math.Round(price2D, 2) : Math.Round(price3D, 2)); //Guardamos el precio de la entrada
                     if (rdbStudent.SelectedIndex == 0)
                     { //Si es estudiante
