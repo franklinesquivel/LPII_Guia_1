@@ -41,14 +41,19 @@ public partial class Ej_3 : System.Web.UI.Page
 
         for (int i = 0; i < 5; i++) //Recorrer los distintos arreglos que contienen los datos de las 5 materias
         {
-            if (uvs[i] == 0) //Verificar sí las UV's seleccionadas son válidas
+            if (grades[i] < 0 || grades[i] > 10) //Verifica sí las notras ingresadas son válidas
             {
-                alertContainer.InnerHtml = "<div class='alert alert-danger col - md - 120' role='alert'>Seleccione UV's para todas las materias!</div>";
+                alertContainer.InnerHtml = "<div class='alert alert-danger' role='alert'>Ingrese notas entre 0 y 10!</div>";
+                return;
+            }
+            else if (uvs[i] == 0) //Verificar sí las UV's seleccionadas son válidas
+            {
+                alertContainer.InnerHtml = "<div class='alert alert-danger' role='alert'>Seleccione UV's para todas las materias!</div>";
                 return;
             }
             else if(subjects[i] == "") //Verificar sí los nombres ingresados son válidos
             {
-                alertContainer.InnerHtml = "<div class='alert alert-danger col - md - 120' role='alert'>Ingrese un nombre para todas las materias!</div>";
+                alertContainer.InnerHtml = "<div class='alert alert-danger' role='alert'>Ingrese un nombre para todas las materias!</div>";
                 return;
             }
 

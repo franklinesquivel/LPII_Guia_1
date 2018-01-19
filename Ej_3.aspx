@@ -162,8 +162,9 @@
 
             <div class="col-md-3 col-md-offset-2 row">
                 <asp:Button Text="Calcular" ID="btnCalculate" CssClass="btn btn-primary col-md-12" OnClick="btnCalculate_Click" runat="server" />
+                <div class="col-md-12"></div>
                 <!--Contenedor para mostrar posibles excepciones-->
-                <div runat="server" id="alertContainer"></div>
+                <div runat="server" id="alertContainer" class="col-md-12"></div>
             </div>
         </form>
     </div>
